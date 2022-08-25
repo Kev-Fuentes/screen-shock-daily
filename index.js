@@ -1,9 +1,11 @@
-const webshot = require("node-webshot");
+const webshot = require('node-webshot');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const {
   buildBody,
   optionsEmployeer,
   optionsHealth,
-} = require("./webshotConfig");
+} = require('./webshotConfig');
 
 const screenShock = ({ body, path, options = {}, messageErr = {} }) => {
   webshot(
@@ -24,22 +26,22 @@ const screenShock = ({ body, path, options = {}, messageErr = {} }) => {
 
   for (const employerId of employers) {
     const bodyEmployer = await buildBody({
-      service: "employer",
+      service: 'employer',
       id: employerId,
     });
     screenShock({
       body: bodyEmployer,
       path: `./images/employers/${employerId}.jpg`,
       options: optionsEmployeer,
-      messageErr: "Error con la peticion al posthire-api",
+      messageErr: 'Error con la peticion al posthire-api',
     });
   }
 
-  const bodyHealth = await buildBody({ service: "healt" });
+  const bodyHealth = await buildBody({ service: 'healt' });
   screenShock({
     body: bodyHealth,
     path: `./images/healt/posthire-api-health.jpg`,
     options: optionsHealth,
-    messageErr: "Error con la peticion al health",
+    messageErr: 'Error con la peticion al health',
   });
 })();

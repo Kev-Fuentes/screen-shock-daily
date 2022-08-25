@@ -1,8 +1,8 @@
 const fetch = require('node-fetch');
-
+const { POSTHIRE_API } = process.env;
 async function getEmployer(id) {
   const response = await fetch(
-    `https://posthire.evercheck.com/upload/status?employerId=${id}&limit=1`
+    `${POSTHIRE_API}/upload/status?employerId=${id}&limit=1`
   );
   const { 0: employer } = await response.json();
 
@@ -19,7 +19,7 @@ async function getEmployer(id) {
 }
 
 const getHealth = async () => {
-  const response = await fetch(`https://posthire.evercheck.com/health`);
+  const response = await fetch(`${POSTHIRE_API}/health`);
   const health = await response.json();
   if (health.status === 'fail') {
     console.error({
