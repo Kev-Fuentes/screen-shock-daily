@@ -1,16 +1,16 @@
-##SCREEN SHOCK DAILY
+## SCREEN SHOCK DAILY
 
-###Instructions: 
+### Instructions: 
 
-- 1. **Execute the following command**
-  ```sh 
+ 1. **Execute the following command**
+    ```sh 
     npm install
     ```
-- 2. **Add the following environment variable**
+ 2. **Add the following environment variable**
     ```sh
     POSTHIRE_API=
     ```
-- 3. **Execute the following command**
+ 3. **Execute the following command**
     ```sh
     npm run start
     ```
