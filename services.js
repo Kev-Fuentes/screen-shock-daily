@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
 async function getEmployer(id) {
   const response = await fetch(
@@ -6,11 +6,12 @@ async function getEmployer(id) {
   );
   const { 0: employer } = await response.json();
 
-  if (employer.status === "queued") {
+  if (employer.status === 'queued') {
     console.error({
+      fileId: employer.id,
       employerId: employer.employer_id,
       status: employer.status,
-      type: "EL ARCHIVO CONTINUA EN QUEUED",
+      type: 'EL ARCHIVO CONTINUA EN QUEUED',
     });
     return;
   }
@@ -20,11 +21,11 @@ async function getEmployer(id) {
 const getHealth = async () => {
   const response = await fetch(`https://posthire.evercheck.com/health`);
   const health = await response.json();
-  if (health.status === "fail") {
+  if (health.status === 'fail') {
     console.error({
       service: health.service,
       status: health.status,
-      type: "HEALTH FALLIDO",
+      type: 'HEALTH FALLIDO',
     });
     return;
   }
