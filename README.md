@@ -1,6 +1,6 @@
 ##SCREEN SHOCK DAILY
 
-### Instructions: 
+###Instructions: 
 
 - 1. **Execute the following command**
   ```sh 
